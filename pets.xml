@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Entities><Dog><id>1</id><name>Buddy</name><age>3</age><type>Dog</type><breed>Golden Retriever</breed></Dog><Cat><id>2</id><name>Murka</name><age>2</age><type>Cat</type><color>White</color></Cat></Entities>
