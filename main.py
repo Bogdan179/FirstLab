@@ -34,5 +34,25 @@ class Owner(Entity):
 class Vaccination(Entity): pass
 class VetClinic(Entity): pass
 class Shelter(Entity): pass
-class DataSerializer: pass
-class PetManager: pass
+class DataSerializer:
+    @staticmethod
+    def save_to_json(data: list, filename: str):
+        with open(filename, 'w') as f:
+            json.dump([obj.__dict__ for obj in data], f)
+
+    @staticmethod
+    def load_from_json(filename: str):
+        with open(filename, 'r') as f:
+            return json.load(f)
+
+class PetManager:
+    def __init__(self):
+        self.animals = []
+
+    def add_animal(self, animal: Animal):
+        self.animals.append(animal)
+        print(f"Added {animal.name}")
+
+manager = PetManager()
+manager.add_animal(Dog(1, "Rex", "5", "Shepherd"))
+DataSerializer.save_to_json(manager.animals, "data.json")
